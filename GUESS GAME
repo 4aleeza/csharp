@@ -1,0 +1,63 @@
+using System;
+namespace std
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int guess = 0;
+            bool playagain = true;
+            while (playagain == true)
+            {
+                Console.WriteLine("Enter Min: ");
+                int min = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("Enter Min: ");
+                int max = Convert.ToInt32(Console.ReadLine());
+                Random random = new Random();
+                int comp = random.Next(min, max);
+                try
+                {
+                    Console.WriteLine("Enter Your Guess: ");
+                     guess = Convert.ToInt32(Console.ReadLine());
+                    if (guess < min || guess > max)
+                    {
+                        while (guess < min || guess > max) {
+                            Console.WriteLine("Please Only Enter Number Between " + min + " and " + max);
+                            guess = Convert.ToInt32(Console.ReadLine());
+                        }
+                    }
+                }
+                catch (FormatException)
+                {
+                        Console.WriteLine("Enter Only Numbers Please. ");
+
+                }
+                while (guess != comp)
+                {
+                    Console.WriteLine("Incorrect! Guess Again: ");
+                    guess = Convert.ToInt32(Console.ReadLine());
+                }
+                if (guess == comp)
+                {
+                    Console.WriteLine("Correct Guess! Play Again? (Press 1 to Play Again. Press 0 to Quit: )");
+                    int ans = Convert.ToInt32(Console.ReadLine());
+                    if (ans == 1)
+                    {
+                        playagain = true;
+                    }
+                    else if (ans == 0)
+                    {
+                        playagain = false;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid Entry");
+                    }
+
+                }
+            }
+        }
+
+
+     }
+}
