@@ -1,0 +1,16 @@
+namespace ConsoleApp1
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("ENTER a (INCLUSIVE): ");
+            int a = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("ENTER b (EXCLUSIVE): ");
+            int b = Convert.ToInt32(Console.ReadLine());
+            Random c = new Random(); //c is alias for Random, similar to typedef
+            int random = c.Next(a,b);
+            Console.WriteLine("Random Digit between "+a+" and "+b+" is: "+random);
+        }
+    }
+}
