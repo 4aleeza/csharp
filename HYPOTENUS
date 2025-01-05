@@ -1,0 +1,17 @@
+namespace ConsoleApp1
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Enter Side a and b: ");
+            Double a = Convert.ToDouble(Console.ReadLine());
+            Double b = Convert.ToDouble(Console.ReadLine());
+            Double c = Math.Pow(a, 2);
+            Double d = Math.Pow(b, 2);
+            Double e = c + d;
+            Double f = Math.Sqrt(e);
+            Console.WriteLine("Hypotenus for Side a and b: "+f);
+        }
+    }
+}
