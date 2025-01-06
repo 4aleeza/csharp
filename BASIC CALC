@@ -1,0 +1,147 @@
+
+namespace ConsoleApp1
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            while (true)
+            {
+                Console.WriteLine("PRESS 0 TO EXIT");
+                Console.WriteLine("PRESS 1 TO ADD");
+                Console.WriteLine("PRESS 2 TO SUBTRACT");
+                Console.WriteLine("PRESS 3 TO MULTIPLY");
+                Console.WriteLine("PRESS 4 TO DIVIDE");
+
+                int choice = Convert.ToInt32(Console.ReadLine());
+                if (choice == 0) 
+                {
+                    Console.WriteLine("EXITING PROGRAM");
+                    break;
+                }
+                switch (choice)
+                {
+                    case 1:
+                        Add();
+                        break;
+                    case 2:
+                        Sub();
+                        break;
+                    case 3:
+                        Mul();
+                        break;
+                    case 4:
+                        Div();
+                        break;
+                    default:
+                        Console.WriteLine("INVALID INPUT");
+                        break;
+
+                }
+            }
+
+        }
+        static void Add()
+        {
+            double total = 0;
+            Console.WriteLine("Enter No: Of Variables: ");
+            int n = Convert.ToInt32(Console.ReadLine());
+            for (int i=0;i<n;i++)
+            {
+                Console.WriteLine("val ("+(i+1)+")");
+                double v = Convert.ToDouble(Console.ReadLine());
+                total = total + v;
+            }
+            Console.WriteLine("ANS = "+total);
+        }
+        static void Sub()
+        {
+            
+            Console.WriteLine("Press S to Stop");
+            Console.WriteLine("Enter Values");
+            Console.WriteLine("Enter First Value: ");
+            double total = Convert.ToDouble(Console.ReadLine());
+            while (true)
+            {
+                Console.WriteLine("Enter Next Value: ");
+                String input = Console.ReadLine();
+                if (input.ToUpper()=="S")
+                {
+                    Console.WriteLine("ANS = "+total);
+                    break;
+                }
+                try
+                {
+                    double b = Convert.ToDouble(input);
+                    total = total - b;
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("Invalid Format");
+                }
+            }
+
+        }
+        static void Mul()
+        {
+            Console.WriteLine("Press S to Stop");
+            Console.WriteLine("Enter Value: ");
+            double x = Convert.ToDouble(Console.ReadLine());
+
+            while (true)
+            {
+                Console.WriteLine("Enter Next Value To Multiply: ");
+                String y = Console.ReadLine();
+                if (y.ToUpper() == "S")
+                {
+                    Console.WriteLine("ANS : " + x);
+                    break;
+                }
+                try
+                {
+                    double z = Convert.ToDouble(y);
+                    x = x * z;
+                }
+                catch
+                (FormatException)
+                {
+                    Console.WriteLine("Invalid Format");
+                    break;
+                }
+            }
+        }
+        static void Div()
+        {
+            Console.WriteLine("Press S to Stop");
+            Console.WriteLine("Enter Numerator: ");
+            double num = Convert.ToDouble(Console.ReadLine());
+
+            while (true)
+            {
+                Console.WriteLine("Enter Denominator: ");
+                String input = Console.ReadLine();
+                if (input.ToUpper() == "S")
+                {
+                    Console.WriteLine("ANS = "+num);
+                    break;
+                }
+                try
+                {
+                    double den = Convert.ToDouble(input);
+                    if (den == 0)
+                    {
+                        Console.WriteLine("Undefined Answer. Please Enter Valid Value: ");
+                        continue;
+                    }
+                    num = num / den;
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("Invalid Format");
+                    break;
+                }
+
+            }
+        }
+    }
+}
